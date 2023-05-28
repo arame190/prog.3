@@ -17,12 +17,12 @@ module.exports = class SuperHuman extends LivingCreature{
         let grass = this.chooseCell(1)
         let emptyCells = this.chooseCell(0)
         let all = grass.concat(emptyCells)
-        let newCell = random(all)
+        let newCell = all[Math.floor(Math.random()* all.length)]
         if (newCell) {
             let newX = newCell[0]
             let newY = newCell[1]
             matrix[this.y][this.x] = 1
-            var newGrass = new Grass(this.x, this.y, this.index);
+            // var newGrass = newGrass(this.x, this.y, this.index);
             var check = 0
             for (var i in grassArr) {
                 if (grassArr[i].x === newGrass.x && grassArr[i].y === newGrass.y) {
@@ -48,7 +48,7 @@ module.exports = class SuperHuman extends LivingCreature{
         let predators = this.chooseCell(3)
         let grassEaters = this.chooseCell(2)
         let all = predators.concat(grassEaters)
-        let one = random(all)
+        let one = all[Math.floor(Math.random()* all.length)]
         if (one) {
             matrix[this.y][this.x] = 0
             let newX = one[0]

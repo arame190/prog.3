@@ -14,10 +14,10 @@ module.exports = class Predator extends LivingCreature{
     }
     move() {
         let emptyCells = this.chooseCell(0)
-        let newCell = random(emptyCells)
-        if (newCell) {
-            let newX = newCell[0]
-            let newY = newCell[1]
+        let emptyCell = emptyCells[Math.floor(Math.random()* emptyCells.length)]
+        if (emptyCell) {
+            let newX = emptyCell[0]
+            let newY = emptyCell[1]
             matrix[this.y][this.x] = 0
             matrix[newY][newX] = 3
             this.x = newX
@@ -37,7 +37,7 @@ module.exports = class Predator extends LivingCreature{
         let grassesN = this.chooseCell(1)
         let grassEaterN = this.chooseCell(2)
         let all = grassesN.concat(grassEaterN)
-        let oneP = random(all)
+        let oneP = all [Math.floor(Math.random()* all.length)]
         if (this.countEating === 150) {
             console.log("die")
             this.die()

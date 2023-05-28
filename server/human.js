@@ -24,7 +24,7 @@ module.exports = class Human extends LivingCreature{
     }
     move() {
         let emptyCells = this.chooseCell(0)
-        let newCell = random(emptyCells)
+        let newCell = emptyCells[Math.floor(Math.random()* emptyCells.length)]
         if (newCell) {
             let newX = newCell[0]
             let newY = newCell[1]
@@ -45,7 +45,7 @@ module.exports = class Human extends LivingCreature{
     }
     kill(){
         let grassEaters=this.chooseCell(2)
-        let grassEater=random(grassEaters)
+        let grassEater=grassEaters[Math.floor(Math.random()* grassEaters.length)]
         if(this.age>=this.yearsToLive){
             this.die()
         }else if(grassEater){
